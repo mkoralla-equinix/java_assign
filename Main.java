@@ -1,5 +1,16 @@
 import java.util.*;
-class Bank
+// for abstraction
+interface BankTemplate
+{
+    public void initial_balance();
+    public void initial_balance(int amount);
+    public void openAccount();
+    public void showAccountDetails();
+    public void Deposit();
+    public void WithDraw();
+}
+
+class Bank implements BankTemplate
 {
     private int balance; //to store balance
     private Long account_number; //to store account number
@@ -9,12 +20,12 @@ class Bank
     // Scanner object is created to take inputs
     // to initialize the balance with default 0
 
-    void initial_balance()
+    public void initial_balance()
     {
         balance=0;
     }
     // to initialize the balance with given amount
-    void initial_balance(int amount)
+    public void initial_balance(int amount)
     {
         balance=amount;
     }
@@ -38,7 +49,7 @@ class Bank
         System.out.println("Current balance: "+balance);
     }
     // to add amount to account
-    void Deposit()
+    public void Deposit()
     {
         try
         {
@@ -53,6 +64,7 @@ class Bank
         }
     }
     // to display the loan interest rates
+    // method overloading or compile-time polymorphism
     void LoanInterest()
     {
         System.out.println("Normal interest rate is 7.4");
@@ -62,7 +74,7 @@ class Bank
         System.out.println("House Interest rate is 9.6");
     }
     // to withdraw the amount
-    void WithDraw()
+    public void WithDraw()
     {
         try
         {
@@ -94,9 +106,11 @@ class Bank
         System.out.println("Current balance is "+balance);
     }
 }
+// for inheritance
 class SBI extends Bank
 {
     // display the interest rate of SBI bank
+    // method overriding runtime-polymorphism
     void LoanInterest()
     {
         System.out.println("The interest rate in SBI is 10.9");
