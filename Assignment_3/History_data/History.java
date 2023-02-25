@@ -2,14 +2,24 @@ package History_data;
 import java.util.*;
 public class History 
 {
-    Deque<String> deque = new ArrayDeque<>(5);
+    static ArrayDeque<String> deque = new ArrayDeque<>();
     public void record(String str)
     {
-        this.deque.addFirst(str);
+        if(deque.size()<5)
+        {
+            deque.addFirst(str);
+        }
+        else
+        {
+            deque.removeLast();
+            deque.addFirst(str);
+        }
+        //System.out.println(deque);
     }
     public void print_history()
     {
-        for(String str:this.deque)
+        System.out.println("The last 5 transactions are: ");
+        for(String str:deque)
         {
             System.out.println(str);
         }

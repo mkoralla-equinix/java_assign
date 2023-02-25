@@ -43,6 +43,7 @@ public class Main
         result=divobj.divide(2.2,1.1);
         System.out.println(result);
         history.record("2.2/1.1="+result);
+        history.print_history();
         int[] marks={10,2,32};
         Student_pack.Student s=new Student_pack.Student();
         s.assign_marks(marks);
