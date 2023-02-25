@@ -1,0 +1,16 @@
+{
+    "employees":
+    [
+        {
+            "name":"Madhu",
+            "age":12,
+            "job":"intern"
+        },
+        {
+            "name":"sai",
+            "age":90,
+            "email":"sai@gamail.com"        
+        }
+
+    ]
+}
